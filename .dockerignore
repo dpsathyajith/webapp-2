@@ -1,0 +1,15 @@
+.git
+.gitignore
+**/__pycache__/
+**/*.pyc
+**/*.pyo
+**/*.pyd
+**/.mypy_cache/
+**/.pytest_cache/
+**/.venv/
+**/venv/
+**/node_modules/
+**/.next/
+**/dist/
+**/build/
+**/.DS_Store
