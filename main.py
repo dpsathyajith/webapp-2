@@ -20,14 +20,14 @@ app.add_middleware(
 
 # Mock Database for Garments
 GARMENTS = [
-    {"id": "1", "name": "Kanchipuram Silk Saree", "category": "saree", "price": 12500, "description": "Authentic handwoven Kanchipuram silk saree with pure zari border.", "image": "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=500&q=80"},
-    {"id": "2", "name": "Banarasi Georgette Saree", "category": "saree", "price": 8900, "description": "Elegant Banarasi georgette saree, perfect for festive occasions.", "image": "https://images.unsplash.com/photo-1583391733958-65021f1400d4?auto=format&fit=crop&w=500&q=80"},
-    {"id": "3", "name": "Embroidered Anarkali Churidhar", "category": "churidhar", "price": 4500, "description": "Beautiful flared anarkali suit with heavy embroidery.", "image": "https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=500&q=80"},
-    {"id": "4", "name": "Cotton Printed Churidhar", "category": "churidhar", "price": 1800, "description": "Comfortable daily-wear pure cotton printed churidhar set.", "image": "https://images.unsplash.com/photo-1551163943-3f6a855d1153?auto=format&fit=crop&w=500&q=80"},
+    {"id": "1", "name": "Traditional Kasavu Saree", "category": "saree", "price": 4500, "description": "Authentic Kerala Kasavu handloom cotton saree with golden zari border.", "image": "https://images.unsplash.com/photo-1610116306796-6fea9f4fae38?auto=format&fit=crop&w=500&q=80"},
+    {"id": "2", "name": "Festive Silk Saree", "category": "saree", "price": 8900, "description": "Elegant silk saree with deep green and gold tones, perfect for festive occasions.", "image": "https://images.unsplash.com/photo-1583391733958-65021f1400d4?auto=format&fit=crop&w=500&q=80"},
+    {"id": "3", "name": "Embroidered Cotton Churidhar", "category": "churidhar", "price": 2500, "description": "Comfortable pure cotton churidhar set with intricate threadwork.", "image": "https://images.unsplash.com/photo-1620016008685-a7db2bbf70ab?auto=format&fit=crop&w=500&q=80"},
+    {"id": "4", "name": "Designer Anarkali Kurta", "category": "churidhar", "price": 3800, "description": "Beautiful flared anarkali suit for wedding functions.", "image": "https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=500&q=80"},
     {"id": "5", "name": "Classic Blue Denim Jeans", "category": "jeans", "price": 2200, "description": "Premium stretchable classic blue denim for everyday wear.", "image": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=500&q=80"},
-    {"id": "6", "name": "High-Waist Black Jeans", "category": "jeans", "price": 2500, "description": "Stylish high-waist black skinny jeans.", "image": "https://images.unsplash.com/photo-1596781741443-42bfbaef2f05?auto=format&fit=crop&w=500&q=80"},
-    {"id": "7", "name": "Floral Chiffon Top", "category": "top", "price": 1200, "description": "Lightweight breathable floral chiffon top.", "image": "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=500&q=80"},
-    {"id": "8", "name": "Ribbed Crop Top", "category": "top", "price": 800, "description": "Trendy ribbed crop top in earthy tones.", "image": "https://images.unsplash.com/photo-1503341455253-b2e723bb3db8?auto=format&fit=crop&w=500&q=80"},
+    {"id": "6", "name": "Slim Fit Black Jeans", "category": "jeans", "price": 2500, "description": "Stylish slim-fit black jeans for modern casual looks.", "image": "https://images.unsplash.com/photo-1596781741443-42bfbaef2f05?auto=format&fit=crop&w=500&q=80"},
+    {"id": "7", "name": "Block Print Cotton Top", "category": "top", "price": 1200, "description": "Beautiful ethnic block print cotton top.", "image": "https://images.unsplash.com/photo-1529339396328-98e91d575797?auto=format&fit=crop&w=500&q=80"},
+    {"id": "8", "name": "Trendy Georgette Kurti", "category": "top", "price": 1500, "description": "Lightweight georgette kurti in pastel shades.", "image": "https://images.unsplash.com/photo-1503341455253-b2e723bb3db8?auto=format&fit=crop&w=500&q=80"},
 ]
 
 @app.get("/cakes")
