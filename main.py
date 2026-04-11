@@ -1,3 +1,4 @@
+from contextlib import asynccontextmanager
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
@@ -6,18 +7,22 @@ import firebase_admin
 from firebase_admin import credentials, firestore
 
 # --- Firebase Setup ---
-# Use service account key file if it exists (local dev)
-# On Cloud Run, use default credentials
-if os.path.exists("firebase-key.json"):
-    cred = credentials.Certificate("firebase-key.json")
-    firebase_admin.initialize_app(cred)
-else:
-    firebase_admin.initialize_app()  # Uses Cloud Run's built-in credentials
+db = None
 
-db = firestore.client(database="clothiqdb")
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    """Initialize Firebase on startup so the port binds before any SDK errors."""
+    global db
+    if os.path.exists("firebase-key.json"):
+        cred = credentials.Certificate("firebase-key.json")
+        firebase_admin.initialize_app(cred)
+    else:
+        firebase_admin.initialize_app()  # Uses Cloud Run's built-in credentials
+    db = firestore.client()
+    yield
 
 # --- FastAPI Setup ---
-app = FastAPI()
+app = FastAPI(lifespan=lifespan)
 
 frontend_origin = os.getenv("FRONTEND_ORIGIN", "http://localhost:3000")
 app.add_middleware(
