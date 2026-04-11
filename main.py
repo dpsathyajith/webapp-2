@@ -14,7 +14,7 @@ if os.path.exists("firebase-key.json"):
 else:
     firebase_admin.initialize_app()  # Uses Cloud Run's built-in credentials
 
-db = firestore.client()
+db = firestore.client(database="clothiqdb")
 
 # --- FastAPI Setup ---
 app = FastAPI()
