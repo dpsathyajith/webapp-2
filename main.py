@@ -5,6 +5,7 @@ from pydantic import BaseModel
 import os
 import firebase_admin
 from firebase_admin import credentials, firestore
+from google.cloud import firestore as google_firestore
 
 # --- Firebase Setup ---
 db = None
@@ -14,11 +15,16 @@ async def lifespan(app: FastAPI):
     """Initialize Firebase on startup so the port binds before any SDK errors."""
     global db
     if os.path.exists("firebase-key.json"):
+        # Initialize Firebase Admin (for other services if needed)
         cred = credentials.Certificate("firebase-key.json")
         firebase_admin.initialize_app(cred)
+        # Initialize Firestore Client with named database
+        db = google_firestore.Client.from_service_account_json("firebase-key.json", database="clothiqdb")
     else:
-        firebase_admin.initialize_app()  # Uses Cloud Run's built-in credentials
-    db = firestore.client()
+        # Initialize Firebase Admin (uses default credentials)
+        firebase_admin.initialize_app()
+        # Initialize Firestore Client with named database (uses environmental credentials)
+        db = google_firestore.Client(database="clothiqdb")
     yield
 
 # --- FastAPI Setup ---
